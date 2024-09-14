@@ -1,0 +1,41 @@
+﻿@model List<DAL.Models.Product>
+
+<h3>Product Details List</h3>
+<a asp-route="Add">Add New Product</a>
+</br>
+<a asp-route="CxList">Customer List</a>
+</br>
+<a asp-route="orderiList">Order Item List</a>
+</br>
+<a asp-route="orderList">Order List</a>
+
+<table>
+	<tr>
+
+		<th>Product ID</th>
+		<th>Product Name</th>
+		<th>Product Category</th>
+		<th>List Price</th>
+		
+	</tr>
+
+	@{
+		foreach (var ps in Model)
+		{
+			<tr>
+				<td>@ps.ProductId</td>
+				<td>@ps.ProductName</td>
+				<td>@ps.Category</td>
+				<td>@ps.ListPrice</td>
+				
+
+				<td>
+					<a asp-route="delete" asp-route-id="@ps.ProductId">Delete</a>
+				</td>
+				<td><a asp-route="details" asp-route-id="@ps.ProductId">Details</a></td>
+				<td><a asp-route="update" asp-route-id="@ps.ProductId">Update</a></td>
+			</tr>
+
+		}
+	}
+</table>

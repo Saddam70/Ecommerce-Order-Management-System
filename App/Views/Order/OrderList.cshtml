@@ -1,0 +1,42 @@
+﻿@model List<DAL.Models.Order>
+
+<h3>Order Details List</h3>
+<a asp-route="">Add New Order </a>
+</br>
+<a asp-route="orderiList">Order Item List</a>
+</br>
+<a asp-route="cxList">Customer List</a>
+</br>
+<a asp-route="List">Product List</a>
+
+<table>
+	<tr>
+
+		<th>Order ID</th>
+		<th>Order Date</th>
+		<th>Product Id</th>
+		<th>Customer Id</th>
+	
+
+	</tr>
+
+	@{
+		foreach (var cx in Model)
+		{
+			<tr>
+				<td>@cx.OrderId</td>
+				<td>@cx.OrderDate</td>
+				<td>@cx.ProductId</td>
+				<td>@cx.CustomerId</td>
+				
+
+				<td>
+					<a asp-route="" asp-route-id="@cx.OrderId">Delete</a>
+				</td>
+				<td><a asp-route="" asp-route-id="@cx.OrderId">Details</a></td>
+				<td><a asp-route="" asp-route-id="@cx.OrderId">Update</a></td>
+			</tr>
+
+		}
+	}
+</table>
